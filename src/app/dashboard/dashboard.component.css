@@ -1,0 +1,41 @@
+body{
+    background: linear-gradient(-135deg, #e8eaec, #ecf1f1);
+  }
+  
+  .wrappermain {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+    }
+    
+    .myCard {
+      display: flex;
+      height: 90%;
+      width: 70%;
+      -webkit-box-shadow: 0px 2px 50px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 50px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 50px -10px rgba(0,0,0,0.75);
+    }
+  
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create two equal columns that floats next to each other */
+    .myColumn {
+      float: left;
+      width: 35vw;
+      padding: 10px;
+      height: 90vh; /* Should be removed. Only for demonstration */
+    }
+    
+    /* Clear floats after the columns */
+    .myRow:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+  
