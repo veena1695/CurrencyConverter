@@ -1,1 +1,43 @@
-<p>home works!</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Homepage </title>
+ <!-- <link rel="stylesheet" type="text/css" href="home.css"> -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header clearfix">
+ <nav>
+  <div class="logo">
+   <h1>Currency Converter</h1>
+  </div>
+  <div class="menu"> 
+   <ul>
+    <!-- <li>Home</li>
+    <li>Services</li> -->
+    <li (click)="navigate('login')">Login</li>
+    <li (click)="navigate('register')">Register</li>
+    <li>ContactUs</li>
+   </ul>
+  </div>
+ </nav>
+ <section>
+  <div class="leftside"> 
+   <img src="../../assets/currency.JPEG">
+  </div>
+  <div class="rightside"> 
+   <h1>Currency Converter</h1>
+   <p>   with a simple exchange rate conversion<br>
+    View and can calculate currency </p>
+   <button (click)="navigate('login')">Welcome</button>
+  </div>
+  
+ </section>
+
+</header>
+
+
+</body>
+</html>
