@@ -36,7 +36,7 @@
             </div>
             <div style="height: 70%;" class="row-6">
                 <div class="col">
-                    <table class="table table-light table-striped">
+                    <table *ngIf="ratesArr.length" class="table table-light table-striped">
                         <thead >
                             <tr>
                                 <th>Country</th>
@@ -46,7 +46,7 @@
                         <tbody>
                             <tr *ngFor="let item of ratesArr">
                                 <td>{{item.country}}</td>
-                                <td>{{item.rate}}</td>
+                                <td>{{ item.rate | currency: item.code }}</td>
                             </tr>
                         </tbody>
                     </table>

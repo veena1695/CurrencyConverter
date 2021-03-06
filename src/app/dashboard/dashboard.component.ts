@@ -15,17 +15,21 @@ export class DashboardComponent implements OnInit {
   sourceAmt : number = 1;
   allCurrencies :any = [];
   ratesArr :any = []
+  currencyObj :any = {}
 
   constructor(private _commonService: CommonServiceService) { }
 
 
   ngOnInit(): void {
     let subscribeCurrency = this._commonService.getAllCurrencies();
-    subscribeCurrency.subscribe((data:object)=>{
-      this.allCurrencies = Object.keys(data).map((y,i)=>{
-        return {"code": y , "country": Object.values(data)[i] }
+    subscribeCurrency.subscribe((data:any)=>{
+      this.currencyObj = data
+      this._commonService.getAllCurrenciesAvailable().subscribe((res:any )=>{
+        this.allCurrencies = Object.keys(res.rates).map((y,i)=>{
+          return {"code": y , "country": data[y] }
+        })
+        console.log(this.allCurrencies)
       })
-      console.log(this.allCurrencies)
     });
   }
 
@@ -44,8 +48,8 @@ export class DashboardComponent implements OnInit {
     if(this.selectedSource!='' && this.selectedTarget.length > 0){
       this._commonService.getExchangeRate({fromCurrency: this.selectedSource, toCurrency: this.selectedTarget}).subscribe((data:any)=>{
         console.log(data)
-        this.ratesArr = Object.keys(data.rates).map((x)=>{
-          return {country: x , rate: this.sourceAmt * data.rates[x]}
+        this.ratesArr = Object.keys(data.rates).map((x:any )=>{
+          return { code: x, country: this.currencyObj[x] , rate: this.sourceAmt * data.rates[x]}
         })
       })
     }

@@ -13,6 +13,9 @@ export class CommonServiceService {
     return this.http.get(`https://openexchangerates.org/api/currencies.json`)
   }
 
+  getAllCurrenciesAvailable(){
+    return this.http.get(`${BASE_URL}`)
+  }
 
   getExchangeRate(data:any){
     return this.http.get(`${BASE_URL}?base=${data.fromCurrency}&symbols=${data.toCurrency}`)
