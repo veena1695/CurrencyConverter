@@ -25,22 +25,22 @@
       <div class="title">Register</div>
       <form action="#">
         <div class="field">
-            <input type="text" required>
+            <input type="text" [(ngModel)]="regObj.name" name="name" required>
             <label>Name</label>
           </div>
         <div class="field">
-          <input type="text" required>
+          <input type="text" [(ngModel)]="regObj.email" name="email" required>
           <label>Email Address</label>
         </div>
         <div class="field">
-          <input type="password" required>
+          <input type="password" [(ngModel)]="regObj.pass" name="pass" required>
           <label>Password</label>
         </div>
        
         <div class="field">
-          <input type="submit" value="Register">
+          <input type="submit" (click)="register()" value="Register">
         </div>
-        <div class="signup-link">Already a member? <a href="#">Login now</a></div>
+        <div class="signup-link" (click)="navigate('login')">Already a member? <a>Login now</a></div>
       </form>
     </div>
 
